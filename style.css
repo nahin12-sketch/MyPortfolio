@@ -182,7 +182,7 @@ button:nth-child(2):hover {
 
 .circle:nth-child(2) {
   width: 30rem;
-  background-image: url("Image/Nahin_picture.png");
+  background-image: url("Nahin.png");
   background-size: 100%;
   background-repeat: no-repeat;
   border: .1rem solid white;
