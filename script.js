@@ -191,4 +191,33 @@ document.addEventListener('DOMContentLoaded', function () {
     scrollHint.addEventListener('click', function () { scrollToSection('project'); });
     scrollHint.style.cursor = 'pointer';
   }
+
+  // ---- Contact Form Submission to Google Sheets ----
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbzOFdvDiIenazXLS8Ki1e4Eox1BO5jiZNtcQEtYA9UFcQtTdOG4HQJJJggUlO-5s8KR/exec';
+  const form = document.querySelector('.contact-form');
+
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const name = form.querySelector('[name="name"]') ? form.querySelector('[name="name"]').value : document.getElementById('name').value;
+      const email = form.querySelector('[name="email"]') ? form.querySelector('[name="email"]').value : document.getElementById('email').value;
+      const message = form.querySelector('[name="message"]') ? form.querySelector('[name="message"]').value : document.getElementById('message').value;
+
+      const data = { name: name, email: email, message: message };
+
+      fetch(scriptURL, {
+        method: 'POST',
+        body: JSON.stringify(data)
+      })
+      .then(response => {
+        alert('Message successfully sent and saved to sheet!');
+        form.reset();
+      })
+      .catch(error => {
+        console.error('Error!', error.message);
+        alert('Failed to send message.');
+      });
+    });
+  }
 });
