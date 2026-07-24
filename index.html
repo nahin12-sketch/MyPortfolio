@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mir Nahin Rahman</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+</head>
+
+<body class="home-page">
+
+  <div id="preloader">
+    <span id="preloader-text"></span>
+  </div>
+
+  <div class="page-transition-overlay" id="pageTransitionOverlay">
+    <span id="pageTransitionText"></span>
+  </div>
+
+  <nav class="top-nav">
+    <ul class="primary-links">
+      <li><a href="#home" class="side-link section-link">Home</a></li>
+      <li><a href="#project" class="side-link section-link">Project</a></li>
+      <li><a href="#about" class="side-link section-link">About</a></li>
+      <li><a href="#leadership" class="side-link section-link">Leadership</a></li>
+      <li><a href="#achievement" class="side-link section-link">Achievements</a></li>
+      <li><a href="#contact" class="side-link section-link">Contact</a></li>
+    </ul>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="side-menu-backdrop" id="menuBackdrop"></div>
+  <aside class="side-menu" id="sideMenu">
+    <button class="side-menu-close" id="menuClose" aria-label="Close menu">&times;</button>
+    <p class="side-menu-title">Navigate</p>
+    <ul>
+      <li><a href="#home" class="side-link section-link">Home</a></li>
+      <li><a href="#project" class="side-link section-link">Project</a></li>
+      <li><a href="#about" class="side-link section-link">About</a></li>
+      <li><a href="#leadership" class="side-link section-link">Leadership</a></li>
+      <li><a href="#achievement" class="side-link section-link">Achievements</a></li>
+      <li><a href="#contact" class="side-link section-link">Contact</a></li>
+    </ul>
+    <div class="side-menu-social">
+      <a href="https://www.facebook.com/share/1DJcDWeRMb/" target="_blank" rel="noopener"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="https://www.linkedin.com/in/nahin-rahman-483576335" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin-in"></i></a>
+      <a href="https://x.com/nahin_mir9955" target="_blank" rel="noopener"><i class="fa-brands fa-twitter"></i></a>
+      <a href="https://github.com/nahin12-sketch" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i></a>
+    </div>
+  </aside>
+
+  <div class="scroll-container" id="scrollContainer">
+
+    <!-- ===== Home ===== -->
+    <section id="home" class="snap-section hero-section">
+      <div class="portfolio-container">
+        <div class="left-container">
+          <div class="icons">
+            <a href="https://www.facebook.com/share/1DJcDWeRMb/" target="_blank" rel="noopener"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.linkedin.com/in/nahin-rahman-483576335" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://x.com/nahin_mir9955" target="_blank" rel="noopener"><i class="fa-brands fa-twitter"></i></a>
+            <a href="https://github.com/nahin12-sketch" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i></a>
+          </div>
+
+          <div class="content">
+            <p class="intro">Hi! I am <span>Mir Nahin Rahman</span></p>
+            <h1><span id="typewriter-text"></span><span class="typewriter-cursor">|</span></h1>
+            <p class="detail">
+              I'm Nahin, a Software Engineering student at Daffodil International University with hands-on
+              experience building projects across web, robotics, and applied problem-solving. I enjoy
+              turning ideas into working systems and I'm always ready to take on new challenges.
+            </p>
+            <div class="btn-container">
+              <a href="cv.pdf" download="Mir_Nahin_Rahman_CV.pdf"><button>Download CV</button></a>
+              <a href="#project" class="section-link"><button>View Project</button></a>
+            </div>
+          </div>
+        </div>
+        <div class="right-container">
+          <div class="design">
+            <div class="circle"></div>
+            <div class="circle"></div>
+          </div>
+        </div>
+      </div>
+      <div class="scroll-hint">
+        <span>Scroll</span>
+        <i class="fa-solid fa-chevron-down"></i>
+      </div>
+    </section>
+
+    <!-- ===== Project ===== -->
+    <section id="project" class="snap-section">
+      <div class="page-wrapper">
+        <div class="page-hero">
+          <p class="eyebrow">My work</p>
+          <h1>Featured <span>Projects</span></h1>
+          <p>A selection of projects spanning embedded systems, algorithmic challenges, and application design.</p>
+        </div>
+        <div class="section">
+          <div class="card-grid">
+            <div class="card">
+              <h3>LifeFloat &mdash; Human Detection Robot in Floods</h3>
+              <p>An autonomous flood-rescue robot concept designed to detect stranded people in flood-affected areas and support faster, safer rescue response.</p>
+              <div class="tag-row" style="margin-bottom:1.2rem;">
+                <span class="tag">Robotics</span>
+                <span class="tag">Human Detection</span>
+                <span class="tag">Disaster Response</span>
+              </div>
+              <a class="card-link" href="https://github.com/nahin12-sketch/LifeFloat-Human-Detection-Robot-in-Floods" target="_blank" rel="noopener">
+                <i class="fa-brands fa-github"></i> View on GitHub
+              </a>
+            </div>
+
+            <div class="card">
+              <h3>HydroQuest &mdash; The Water Jug Challenge</h3>
+              <p>A classic water-jug puzzle solved through algorithmic problem-solving, exploring state spaces and search strategies to reach a target measurement.</p>
+              <div class="tag-row" style="margin-bottom:1.2rem;">
+                <span class="tag">Algorithms</span>
+                <span class="tag">Problem Solving</span>
+                <span class="tag">Search Strategies</span>
+              </div>
+              <a class="card-link" href="https://github.com/nahin12-sketch/HydroQuest-The-Water-Jug-Challenge" target="_blank" rel="noopener">
+                <i class="fa-brands fa-github"></i> View on GitHub
+              </a>
+            </div>
+
+            <div class="card">
+              <h3>Sheltrify &mdash; Animal Shelter Management System</h3>
+              <p>A management system built to organize animal shelter operations &mdash; tracking animals, adopters, and shelter records in one structured application.</p>
+              <div class="tag-row" style="margin-bottom:1.2rem;">
+                <span class="tag">System Design</span>
+                <span class="tag">Data Management</span>
+                <span class="tag">CRUD</span>
+              </div>
+              <a class="card-link" href="https://github.com/nahin12-sketch/Sheltrify-The-Animal-Shelter-Management-System" target="_blank" rel="noopener">
+                <i class="fa-brands fa-github"></i> View on GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== About ===== -->
+    <section id="about" class="snap-section">
+      <div class="page-wrapper">
+        <div class="page-hero">
+          <p class="eyebrow">Get to know me</p>
+          <h1>About <span>Me</span></h1>
+          <p>A closer look at who I am, what I study, and the skills I bring to every project.</p>
+        </div>
+        <div class="section">
+          <div class="about-grid no-photo">
+            <div class="about-text">
+              <div class="section-title">About Me</div>
+              <p>
+                I'm Mir Nahin Rahman, a Software Engineering student at DIU (6th semester, CGPA 3.95),
+                building a strong foundation in software design and development.
+              </p>
+              <p>
+                I stay active on campus through volunteering and leadership roles, where I've grown my
+                organizational and event-management skills.
+              </p>
+            </div>
+            <div class="about-details">
+              <div class="section-title">Education</div>
+              <ul class="mini-list">
+                <li><span>BSc in Software Engineering, DIU</span><span>2028 (Expected)</span></li>
+                <li><span>Higher Secondary Certificate, Science</span><span>2022 &middot; GPA 5.00</span></li>
+                <li><span>Secondary School Certificate, Science</span><span>2020 &middot; GPA 5.00</span></li>
+              </ul>
+
+              <div class="section-title" style="margin-top:.6rem;">Skills</div>
+              <div class="tag-row">
+                <span class="tag">C / C++</span>
+                <span class="tag">Java</span>
+                <span class="tag">Python (Basic)</span>
+                <span class="tag">Microsoft Office</span>
+                <span class="tag">Canva</span>
+                <span class="tag">UML &amp; Requirements Engineering</span>
+              </div>
+
+              <div class="section-title" style="margin-top:.6rem;">Hobbies &amp; Interests</div>
+              <div class="tag-row">
+                <span class="tag">Competitive Programming</span>
+                <span class="tag">Reading Non-fiction &amp; Tech Books</span>
+                <span class="tag">Volunteering &amp; Mentoring</span>
+                <span class="tag">Cricket</span>
+                <span class="tag">Table Tennis</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Leadership ===== -->
+    <section id="leadership" class="snap-section">
+      <div class="page-wrapper">
+        <div class="page-hero">
+          <p class="eyebrow">Beyond the classroom</p>
+          <h1>Leadership <span>&amp; Campus Roles</span></h1>
+          <p>Roles where I've led outreach, coordinated events, and represented organizations on campus.</p>
+        </div>
+        <div class="section">
+          <div class="card-grid">
+            <div class="card">
+              <h3>Campus Ambassador &mdash; CDC, DIU</h3>
+              <p>Promoted career development programs and academic events, acting as a communication bridge between the CDC and students.</p>
+              <div class="tag-row">
+                <span class="tag">Outreach</span>
+                <span class="tag">Communication</span>
+              </div>
+            </div>
+            <div class="card">
+              <h3>Campus Ambassador &mdash; Skill Jobs</h3>
+              <p>Promoted job platform opportunities to students, leading outreach and engagement initiatives to increase participation.</p>
+              <div class="tag-row">
+                <span class="tag">Career Development</span>
+                <span class="tag">Networking</span>
+              </div>
+            </div>
+            <div class="card">
+              <h3>Campus Ambassador &mdash; AXIOM Season 1 (Army IBA Sylhet)</h3>
+              <p>Organized and supported awareness campaigns and outreach efforts, connecting the event with the student community.</p>
+              <div class="tag-row">
+                <span class="tag">Event Promotion</span>
+                <span class="tag">Coordination</span>
+              </div>
+            </div>
+            <div class="card">
+              <h3>Organizer &mdash; Unlock the Algorithm Programming Contest, Spring 2026</h3>
+              <p>Played a key role in planning and organizing the contest &mdash; coordinating with participants, judges, and technical teams.</p>
+              <div class="tag-row">
+                <span class="tag">Event Management</span>
+                <span class="tag">Decision Making</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Achievements ===== -->
+    <section id="achievement" class="snap-section">
+      <div class="page-wrapper">
+        <div class="page-hero">
+          <p class="eyebrow">Recognition</p>
+          <h1>My <span>Achievements</span></h1>
+          <p>Academic results and recognitions earned through consistent effort and involvement.</p>
+        </div>
+        <div class="section">
+          <div class="stat-grid">
+            <div class="stat-card">
+              <div class="stat-num">3.95</div>
+              <div class="stat-label">Current CGPA &middot; BSc Software Engineering</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-num">5.00</div>
+              <div class="stat-label">HSC Result (out of 5.00)</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-num">5.00</div>
+              <div class="stat-label">SSC Result (out of 5.00)</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-num">3</div>
+              <div class="stat-label">Campus Ambassador Roles</div>
+            </div>
+          </div>
+          <div class="section-title">Highlights</div>
+          <div class="card-grid">
+            <div class="card">
+              <h3>Consistent Academic Excellence</h3>
+              <p>Maintained a perfect GPA of 5.00 in both SSC and HSC, and a strong CGPA of 3.95 in the Software Engineering program at DIU.</p>
+            </div>
+            <div class="card">
+              <h3>Event Organizer Recognition</h3>
+              <p>Trusted to organize the Unlock the Algorithm Programming Contest (Spring 2026), managing logistics, judges, and participants.</p>
+            </div>
+            <div class="card">
+              <h3>Multi-Platform Campus Ambassador</h3>
+              <p>Selected as Campus Ambassador for three separate organizations &mdash; CDC DIU, Skill Jobs, and AXIOM Season 1.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Contact ===== -->
+    <section id="contact" class="snap-section">
+      <div class="page-wrapper">
+        <div class="page-hero">
+          <p class="eyebrow">Let's connect</p>
+          <h1>Get in <span>Touch</span></h1>
+          <p>Have an opportunity, project, or just want to say hi? I'd love to hear from you.</p>
+        </div>
+        <div class="section">
+          <div class="contact-grid">
+            <div>
+              <div class="contact-info-item">
+                <i class="fa-solid fa-envelope"></i>
+                <div>
+                  <div class="label">Email</div>
+                  <a class="value" href="mailto:Nahinrahman926@gmail.com">Nahinrahman926@gmail.com</a>
+                </div>
+              </div>
+              <div class="contact-info-item">
+                <i class="fa-solid fa-phone"></i>
+                <div>
+                  <div class="label">Phone</div>
+                  <a class="value" href="tel:+8801786793452">+880 1786-793452</a>
+                </div>
+              </div>
+              <div class="contact-info-item">
+                <i class="fa-solid fa-location-dot"></i>
+                <div>
+                  <div class="label">Location</div>
+                  <div class="value">Savar, Bangladesh</div>
+                </div>
+              </div>
+              <div class="social-row">
+                <a href="https://www.facebook.com/share/1DJcDWeRMb/" target="_blank" rel="noopener"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://www.linkedin.com/in/nahin-rahman-483576335" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://x.com/nahin_mir9955" target="_blank" rel="noopener"><i class="fa-brands fa-twitter"></i></a>
+                <a href="https://github.com/nahin12-sketch" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i></a>
+              </div>
+            </div>
+
+            <form class="contact-form" onsubmit="return false;">
+              <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" placeholder="Enter your name" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Your Email</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+              </div>
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" rows="3" placeholder="Write your message" required></textarea>
+              </div>
+              <button type="submit">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
