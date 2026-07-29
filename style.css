@@ -1237,7 +1237,7 @@ body.home-page .primary-links {
 }
 
 @media (max-width: 900px) {
-  .primary-links {
+  body.home-page .primary-links {
     display: none;
   }
 
@@ -1279,7 +1279,7 @@ html, body {
 }
 
 @media (max-width: 900px) {
-  .primary-links {
+  body.home-page .primary-links {
     display: none;
   }
 }
