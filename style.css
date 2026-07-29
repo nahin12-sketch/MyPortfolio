@@ -490,6 +490,170 @@ body {
   margin-top: .4rem;
 }
 
+/* Project card link row (GitHub + View Image) */
+.card-link-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .7rem;
+}
+
+.img-view-btn {
+  background: transparent;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* Image lightbox modal */
+.img-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: .3s ease;
+}
+
+.img-modal.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.img-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(4px);
+}
+
+.img-modal-content {
+  position: relative;
+  z-index: 1;
+  max-width: 88vw;
+  max-height: 86vh;
+  background: #262525;
+  border: 1px solid rgba(93, 185, 238, 0.25);
+  border-radius: .8rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: scale(.92);
+  transition: .3s ease;
+}
+
+.img-modal.open .img-modal-content {
+  transform: scale(1);
+}
+
+.img-modal-content img {
+  max-width: 100%;
+  max-height: 72vh;
+  border-radius: .5rem;
+  object-fit: contain;
+}
+
+.img-modal-title {
+  color: #ccc;
+  font-size: .9rem;
+  margin-top: .8rem;
+  text-align: center;
+}
+
+.img-modal-close {
+  position: absolute;
+  top: -.9rem;
+  right: -.9rem;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  background: #5DB9EE;
+  color: #1c1b1b;
+  border: none;
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body.light-mode .img-modal-content {
+  background: #ffffff;
+  border-color: rgba(30, 136, 199, 0.25);
+}
+
+body.light-mode .img-modal-title {
+  color: #555;
+}
+
+body.light-mode .img-modal-close {
+  background: #1E88C7;
+  color: #fff;
+}
+
+/* Testimonial cards (Feedback) */
+.testimonial-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.testimonial-card .quote-icon {
+  color: #5DB9EE;
+  opacity: .5;
+  font-size: 1.4rem;
+  margin-bottom: .6rem;
+}
+
+.testimonial-card p {
+  font-style: italic;
+  flex-grow: 1;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  margin-top: .6rem;
+}
+
+.avatar-circle {
+  flex-shrink: 0;
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 50%;
+  background: rgba(93, 185, 238, 0.12);
+  border: 1px solid rgba(93, 185, 238, 0.4);
+  color: #5DB9EE;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: .95rem;
+}
+
+.testimonial-author h3 {
+  font-size: 1rem;
+  margin-bottom: .1rem;
+}
+
+.testimonial-author .role {
+  color: #999;
+  font-size: .8rem;
+}
+
+body.light-mode .avatar-circle {
+  background: rgba(30, 136, 199, 0.08);
+  border-color: rgba(30, 136, 199, 0.35);
+  color: #1E88C7;
+}
+
+body.light-mode .testimonial-author .role {
+  color: #777;
+}
+
 /* Contact */
 .contact-grid {
   display: grid;
@@ -1146,3 +1310,365 @@ html, body {
   0%, 100% { transform: translateY(0); opacity: .5; }
   50% { transform: translateY(.5rem); opacity: 1; }
 }
+
+/* 4444444444444444444444444444444444 */
+/* ---------- Day / Night mode toggle ---------- */
+
+.top-nav .theme-toggle {
+  position: absolute;
+  right: 6.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.05rem;
+  transition: .3s ease;
+  z-index: 250;
+}
+
+.theme-toggle:hover {
+  border-color: #5DB9EE;
+  color: #5DB9EE;
+}
+
+.side-theme-toggle {
+  width: auto;
+  height: auto;
+  border-radius: 2rem;
+  gap: .6rem;
+  padding: .6rem 1.1rem;
+  margin-bottom: 2rem;
+  font-size: .9rem;
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+}
+
+@media (max-width: 900px) {
+  .top-nav .theme-toggle {
+    right: 4.4rem;
+  }
+}
+
+/* ===================================================================
+   LIGHT MODE — applied via body.light-mode, overrides the dark theme
+   =================================================================== */
+
+body.light-mode {
+  background: #f4f7fb;
+}
+
+body.light-mode .theme-toggle {
+  color: #1c1b1b;
+  border-color: rgba(0, 0, 0, 0.15);
+}
+
+body.light-mode .theme-toggle:hover {
+  border-color: #1E88C7;
+  color: #1E88C7;
+}
+
+/* Top nav / navigation */
+body.light-mode .top-nav,
+body.light-mode .navlist,
+body.light-mode .home-nav-links.scrolled,
+body.light-mode .top-nav.scrolled {
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+}
+
+body.light-mode .top-nav .logo,
+body.light-mode .primary-links li a,
+body.light-mode .navlist li a,
+body.light-mode .side-menu ul li a,
+body.light-mode .menu-btn span {
+  color: #1c1b1b;
+}
+
+body.light-mode .primary-links li a.active,
+body.light-mode .navlist li a.active,
+body.light-mode .side-menu ul li a:hover,
+body.light-mode .side-menu ul li a.active,
+body.light-mode .top-nav .logo span {
+  color: #1E88C7;
+}
+
+body.light-mode .navlist li a::after,
+body.light-mode .navlist .active::after {
+  background: #1c1b1b;
+}
+
+body.light-mode .navlist li a.active::after {
+  background: #1E88C7;
+}
+
+body.light-mode .menu-btn:hover span {
+  background: #1E88C7;
+}
+
+/* Hero / home page */
+body.light-mode .left-container {
+  background: #ffffff;
+}
+
+body.light-mode .right-container {
+  background: linear-gradient(-45deg, #3877ff, #ffffff 70%);
+}
+
+body.light-mode .circle:nth-child(1) {
+  background: linear-gradient(90deg, transparent 50%, #ffffff 50%);
+}
+
+body.light-mode .circle:nth-child(2) {
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow:
+    0 0 1rem rgba(0, 0, 0, 0.12), inset 0 0 1rem rgba(0, 0, 0, 0.08),
+    0 0 2rem #3877ff, inset 0 0 2rem rgba(56, 119, 255, 0.4),
+    0 0 4rem rgba(56, 119, 255, 0.5), inset 0 0 4rem rgba(56, 119, 255, 0.3);
+}
+
+body.light-mode .content .intro,
+body.light-mode .content .detail {
+  color: #1c1b1b;
+}
+
+body.light-mode .icons .fa-brands {
+  color: #555;
+}
+
+body.light-mode button:nth-child(1) {
+  color: #fff;
+}
+
+body.light-mode button:nth-child(1):hover {
+  color: #1E88C7;
+}
+
+body.light-mode button:nth-child(2):hover {
+  color: #fff;
+}
+
+/* Page wrapper / hero banner */
+body.light-mode .page-wrapper,
+body.light-mode body {
+  background: #f4f7fb;
+  color: #1c1b1b;
+}
+
+body.light-mode .page-hero h1,
+body.light-mode .section-title,
+body.light-mode .card h3,
+body.light-mode .timeline-item h3,
+body.light-mode .contact-info-item .value {
+  color: #1c1b1b;
+}
+
+body.light-mode .page-hero p,
+body.light-mode .about-text p {
+  color: #444;
+}
+
+body.light-mode .page-hero .eyebrow,
+body.light-mode .about-details .mini-list li span:last-child,
+body.light-mode .mini-list li span:last-child {
+  color: #1E88C7;
+}
+
+/* Cards */
+body.light-mode .card,
+body.light-mode .contact-form {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 0 .2rem .8rem rgba(0, 0, 0, 0.05);
+}
+
+body.light-mode .card:hover {
+  border-color: #1E88C7;
+  box-shadow: 0 .6rem 1.6rem rgba(56, 119, 255, 0.15);
+}
+
+body.light-mode .card p,
+body.light-mode .stat-card .stat-label,
+body.light-mode .timeline-item p,
+body.light-mode .mini-list li {
+  color: #555;
+}
+
+body.light-mode .card-link {
+  color: #1E88C7;
+  border-color: #1E88C7;
+}
+
+body.light-mode .card-link:hover {
+  background: #1E88C7;
+  color: #fff;
+}
+
+body.light-mode .tag {
+  color: #1E88C7;
+  border-color: rgba(30, 136, 199, 0.4);
+  background: rgba(30, 136, 199, 0.08);
+}
+
+body.light-mode .tag:hover {
+  background: #1E88C7;
+  color: #fff;
+}
+
+/* Stat cards */
+body.light-mode .stat-card {
+  background: linear-gradient(160deg, #ffffff 60%, #eef2f8);
+  border-color: rgba(30, 136, 199, 0.25);
+}
+
+body.light-mode .stat-card .stat-num,
+body.light-mode .timeline-item .t-date {
+  color: #1E88C7;
+}
+
+body.light-mode .timeline-item .t-tag {
+  background: #1E88C7;
+  color: #fff;
+}
+
+body.light-mode .timeline {
+  border-left-color: rgba(30, 136, 199, 0.3);
+}
+
+body.light-mode .timeline-item::before {
+  background: #1E88C7;
+  box-shadow: 0 0 0 .3rem rgba(30, 136, 199, 0.18);
+}
+
+/* Contact */
+body.light-mode .contact-info-item i {
+  background: rgba(30, 136, 199, 0.08);
+  border-color: rgba(30, 136, 199, 0.35);
+  color: #1E88C7;
+}
+
+body.light-mode .contact-info-item .label {
+  color: #777;
+}
+
+body.light-mode .contact-info-item a.value:hover {
+  color: #1E88C7;
+}
+
+body.light-mode .social-row a {
+  border-color: rgba(0, 0, 0, 0.12);
+  color: #555;
+}
+
+body.light-mode .social-row a:hover {
+  border-color: #1E88C7;
+  color: #1E88C7;
+}
+
+body.light-mode .contact-form label {
+  color: #555;
+}
+
+body.light-mode .contact-form input,
+body.light-mode .contact-form textarea {
+  background: #f4f7fb;
+  border-color: rgba(0, 0, 0, 0.12);
+  color: #1c1b1b;
+}
+
+body.light-mode .contact-form input:focus,
+body.light-mode .contact-form textarea:focus {
+  border-color: #1E88C7;
+}
+
+body.light-mode .contact-form button {
+  background: #1E88C7;
+  color: #fff;
+}
+
+body.light-mode .contact-form button:hover {
+  background: transparent;
+  color: #1E88C7;
+  border-color: #1E88C7;
+}
+
+/* About */
+body.light-mode .about-details {
+  border-left-color: rgba(30, 136, 199, 0.2);
+}
+
+body.light-mode .mini-list li {
+  border-bottom-color: rgba(0, 0, 0, 0.08);
+}
+
+/* Side menu */
+body.light-mode .side-menu {
+  background: #ffffff;
+  border-left-color: rgba(0, 0, 0, 0.08);
+}
+
+body.light-mode .side-menu-close {
+  color: #1c1b1b;
+}
+
+body.light-mode .side-menu-close:hover {
+  color: #1E88C7;
+}
+
+body.light-mode .side-menu-title {
+  color: #1E88C7;
+}
+
+body.light-mode .side-menu-social a {
+  border-color: rgba(0, 0, 0, 0.12);
+  color: #555;
+}
+
+body.light-mode .side-menu-social a:hover {
+  border-color: #1E88C7;
+  color: #1E88C7;
+}
+
+/* Footer */
+body.light-mode .site-footer {
+  color: #888;
+  border-top-color: rgba(0, 0, 0, 0.08);
+}
+
+/* Preloader / transitions */
+body.light-mode #preloader,
+body.light-mode .page-transition-overlay {
+  background: #f4f7fb;
+}
+
+body.light-mode #preloader-text,
+body.light-mode #pageTransitionText {
+  color: #1c1b1b;
+}
+
+body.light-mode #preloader-text span {
+  color: #1E88C7;
+}
+
+body.light-mode .scroll-hint {
+  color: #666;
+}
+
+body.light-mode .scroll-hint i {
+  color: #1E88C7;
+}
+
+body.light-mode .page-hero::before {
+  opacity: 0.1;
+}
+
