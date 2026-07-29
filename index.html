@@ -24,10 +24,14 @@
       <li><a href="#home" class="side-link section-link">Home</a></li>
       <li><a href="#project" class="side-link section-link">Project</a></li>
       <li><a href="#about" class="side-link section-link">About</a></li>
-      <li><a href="#leadership" class="side-link section-link">Leadership</a></li>
       <li><a href="#achievement" class="side-link section-link">Achievements</a></li>
+      <li><a href="#news" class="side-link section-link">News</a></li>
+      <li><a href="#feedback" class="side-link section-link">Feedback</a></li>
       <li><a href="#contact" class="side-link section-link">Contact</a></li>
     </ul>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle day/night mode" title="Toggle day/night mode">
+      <i class="fa-solid fa-sun" id="themeIcon"></i>
+    </button>
     <button class="menu-btn" id="menuBtn" aria-label="Open menu">
       <span></span><span></span><span></span>
     </button>
@@ -41,10 +45,15 @@
       <li><a href="#home" class="side-link section-link">Home</a></li>
       <li><a href="#project" class="side-link section-link">Project</a></li>
       <li><a href="#about" class="side-link section-link">About</a></li>
-      <li><a href="#leadership" class="side-link section-link">Leadership</a></li>
       <li><a href="#achievement" class="side-link section-link">Achievements</a></li>
+      <li><a href="#news" class="side-link section-link">News</a></li>
+      <li><a href="#feedback" class="side-link section-link">Feedback</a></li>
       <li><a href="#contact" class="side-link section-link">Contact</a></li>
     </ul>
+    <button class="theme-toggle side-theme-toggle" id="themeToggleSide" aria-label="Toggle day/night mode">
+      <i class="fa-solid fa-sun" id="themeIconSide"></i>
+      <span id="themeLabelSide">Day mode</span>
+    </button>
     <div class="side-menu-social">
       <a href="https://www.facebook.com/share/1DJcDWeRMb/" target="_blank" rel="noopener"><i class="fa-brands fa-facebook-f"></i></a>
       <a href="https://www.linkedin.com/in/nahin-rahman-483576335" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin-in"></i></a>
@@ -70,9 +79,7 @@
             <p class="intro">Hi! I am <span>Mir Nahin Rahman</span></p>
             <h1><span id="typewriter-text"></span><span class="typewriter-cursor">|</span></h1>
             <p class="detail">
-              I'm Nahin, a Software Engineering student at Daffodil International University with hands-on
-              experience building projects across web, robotics, and applied problem-solving. I enjoy
-              turning ideas into working systems and I'm always ready to take on new challenges.
+              Hi, I am Nahin, Experienced full-stack devolper from Bangladesh, with 3 years of expertise in React, Next, Node.js, and Postages. Ready to create innovative with solutions!
             </p>
             <div class="btn-container">
               <a href="cv.pdf" download="Mir_Nahin_Rahman_CV.pdf"><button>Download CV</button></a>
@@ -111,9 +118,14 @@
                 <span class="tag">Human Detection</span>
                 <span class="tag">Disaster Response</span>
               </div>
-              <a class="card-link" href="https://github.com/nahin12-sketch/LifeFloat-Human-Detection-Robot-in-Floods" target="_blank" rel="noopener">
-                <i class="fa-brands fa-github"></i> View on GitHub
-              </a>
+              <div class="card-link-row">
+                <a class="card-link" href="https://github.com/nahin12-sketch/LifeFloat-Human-Detection-Robot-in-Floods" target="_blank" rel="noopener">
+                  <i class="fa-brands fa-github"></i> View on GitHub
+                </a>
+                <button type="button" class="card-link img-view-btn" data-img="LifeFloat.png" data-title="LifeFloat — Human Detection Robot in Floods">
+                  <i class="fa-solid fa-image"></i> View Image
+                </button>
+              </div>
             </div>
 
             <div class="card">
@@ -124,9 +136,14 @@
                 <span class="tag">Problem Solving</span>
                 <span class="tag">Search Strategies</span>
               </div>
-              <a class="card-link" href="https://github.com/nahin12-sketch/HydroQuest-The-Water-Jug-Challenge" target="_blank" rel="noopener">
-                <i class="fa-brands fa-github"></i> View on GitHub
-              </a>
+              <div class="card-link-row">
+                <a class="card-link" href="https://github.com/nahin12-sketch/HydroQuest-The-Water-Jug-Challenge" target="_blank" rel="noopener">
+                  <i class="fa-brands fa-github"></i> View on GitHub
+                </a>
+                <button type="button" class="card-link img-view-btn" data-img="HydroQuest.png" data-title="HydroQuest — The Water Jug Challenge">
+                  <i class="fa-solid fa-image"></i> View Image
+                </button>
+              </div>
             </div>
 
             <div class="card">
@@ -137,9 +154,14 @@
                 <span class="tag">Data Management</span>
                 <span class="tag">CRUD</span>
               </div>
-              <a class="card-link" href="https://github.com/nahin12-sketch/Sheltrify-The-Animal-Shelter-Management-System" target="_blank" rel="noopener">
-                <i class="fa-brands fa-github"></i> View on GitHub
-              </a>
+              <div class="card-link-row">
+                <a class="card-link" href="https://github.com/nahin12-sketch/Sheltrify-The-Animal-Shelter-Management-System" target="_blank" rel="noopener">
+                  <i class="fa-brands fa-github"></i> View on GitHub
+                </a>
+                <button type="button" class="card-link img-view-btn" data-img="Sheltrify.png" data-title="Sheltrify — Animal Shelter Management System">
+                  <i class="fa-solid fa-image"></i> View Image
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -199,53 +221,6 @@
       </div>
     </section>
 
-    <!-- ===== Leadership ===== -->
-    <section id="leadership" class="snap-section">
-      <div class="page-wrapper">
-        <div class="page-hero">
-          <p class="eyebrow">Beyond the classroom</p>
-          <h1>Leadership <span>&amp; Campus Roles</span></h1>
-          <p>Roles where I've led outreach, coordinated events, and represented organizations on campus.</p>
-        </div>
-        <div class="section">
-          <div class="card-grid">
-            <div class="card">
-              <h3>Campus Ambassador &mdash; CDC, DIU</h3>
-              <p>Promoted career development programs and academic events, acting as a communication bridge between the CDC and students.</p>
-              <div class="tag-row">
-                <span class="tag">Outreach</span>
-                <span class="tag">Communication</span>
-              </div>
-            </div>
-            <div class="card">
-              <h3>Campus Ambassador &mdash; Skill Jobs</h3>
-              <p>Promoted job platform opportunities to students, leading outreach and engagement initiatives to increase participation.</p>
-              <div class="tag-row">
-                <span class="tag">Career Development</span>
-                <span class="tag">Networking</span>
-              </div>
-            </div>
-            <div class="card">
-              <h3>Campus Ambassador &mdash; AXIOM Season 1 (Army IBA Sylhet)</h3>
-              <p>Organized and supported awareness campaigns and outreach efforts, connecting the event with the student community.</p>
-              <div class="tag-row">
-                <span class="tag">Event Promotion</span>
-                <span class="tag">Coordination</span>
-              </div>
-            </div>
-            <div class="card">
-              <h3>Organizer &mdash; Unlock the Algorithm Programming Contest, Spring 2026</h3>
-              <p>Played a key role in planning and organizing the contest &mdash; coordinating with participants, judges, and technical teams.</p>
-              <div class="tag-row">
-                <span class="tag">Event Management</span>
-                <span class="tag">Decision Making</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- ===== Achievements ===== -->
     <section id="achievement" class="snap-section">
       <div class="page-wrapper">
@@ -286,6 +261,117 @@
             <div class="card">
               <h3>Multi-Platform Campus Ambassador</h3>
               <p>Selected as Campus Ambassador for three separate organizations &mdash; CDC DIU, Skill Jobs, and AXIOM Season 1.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== News ===== -->
+    <section id="news" class="snap-section">
+      <div class="page-wrapper">
+        <div class="page-hero">
+          <p class="eyebrow">Latest updates</p>
+          <h1>My <span>News</span></h1>
+          <p>Recent milestones, selections, and updates from my academic and campus journey.</p>
+        </div>
+        <div class="section">
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="t-date">July 2026</div>
+              <h3>Offer Letter Received &mdash; Universiti Sains Malaysia</h3>
+              <p>Officially received the offer letter for the Student Exchange Program at Universiti Sains Malaysia (USM), Malaysia.</p>
+              <span class="t-tag">Exchange Program</span>
+            </div>
+            <div class="timeline-item">
+              <div class="t-date">June 2026</div>
+              <h3>Selected After Viva &mdash; USM Exchange Program</h3>
+              <p>Successfully cleared the viva (interview) round of the selection process for the Student Exchange Program at Universiti Sains Malaysia.</p>
+              <span class="t-tag">Selection Viva</span>
+            </div>
+            <div class="timeline-item">
+              <div class="t-date">May 2026</div>
+              <h3>Maintaining a 3.95 CGPA at DIU</h3>
+              <p>Continuing consistent academic performance in the Software Engineering program at Daffodil International University.</p>
+              <span class="t-tag">Event Organizing</span>
+            </div>
+            <div class="timeline-item">
+              <div class="t-date">May 2026</div>
+              <h3>Organized "Unlock the Algorithm" Programming Contest</h3>
+              <p>Played a key role in organizing the programming contest, coordinating with participants, judges, and technical teams.</p>
+              <span class="t-tag">Academics</span>
+            </div>
+            <div class="timeline-item">
+              <div class="t-date">April 2026</div>
+              <h3>Selected as Campus Ambassador &mdash; AXIOM Season 1</h3>
+              <p>Represented Army IBA Sylhet's AXIOM Season 1 as Campus Ambassador, supporting outreach and awareness campaigns.</p>
+              <span class="t-tag">Campus Ambassador</span>
+            </div>
+            <div class="timeline-item">
+              <div class="t-date">February 2026</div>
+              <h3>Volunteering as Daffodil Convocation 2026 — CDC, DIU</h3>
+              <p>Assisted in organizing the convocation by supporting attendees and coordinating event activities.</p>
+              <span class="t-tag">Volunteer</span>
+            </div>
+            <div class="timeline-item">
+              <div class="t-date">January 2026</div>
+              <h3>Volunteering as Daffodil Family Day 2026 — CDC, DIU</h3>
+              <p>upported event activities, craft sessions, and lunch distribution during Family Day 2026.</p>
+              <span class="t-tag">Event Volunteer</span>
+            </div>
+            <div class="timeline-item">
+              <div class="t-date">January 2026</div>
+              <h3>Selected as Campus Ambassador — CDC, DIU</h3>
+              <p>Promoted career development programs and connected students with professional opportunities.</p>
+              <span class="t-tag">Campus Ambassador</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Feedback ===== -->
+    <section id="feedback" class="snap-section">
+      <div class="page-wrapper">
+        <div class="page-hero">
+          <p class="eyebrow">What people say</p>
+          <h1>Feedback</h1>
+          <p>Kind words from faculty members who have mentored and worked with me at DIU.</p>
+        </div>
+        <div class="section">
+          <div class="card-grid">
+            <div class="card testimonial-card">
+              <i class="fa-solid fa-quote-left quote-icon"></i>
+              <p>"Nahin is one of the most consistent and dedicated students I've taught. His discipline in coursework and his initiative in organizing campus events reflect strong leadership qualities."</p>
+              <div class="testimonial-author">
+                <div class="avatar-circle">SM</div>
+                <div>
+                  <h3>Sakib Mojumdar</h3>
+                  <span class="role">Faculty, Dept. of Software Engineering, DIU</span>
+                </div>
+              </div>
+            </div>
+            <div class="card testimonial-card">
+              <i class="fa-solid fa-quote-left quote-icon"></i>
+              <p>"What stands out about Nahin is his balance between academics and extracurricular involvement. He approaches every responsibility with sincerity and a problem-solving mindset."</p>
+              <div class="testimonial-author">
+                <div class="avatar-circle">AR</div>
+                <div>
+                  <h3>Ashikur Rahman</h3>
+                  <span class="role">Faculty, Dept. of Software Engineering, DIU</span>
+                </div>
+              </div>
+            </div>
+            <div class="card testimonial-card">
+              <i class="fa-solid fa-quote-left quote-icon"></i>
+              <p>"Nahin's proactive attitude was clear throughout the exchange program selection process. He communicated professionally and represented the university well at every stage."</p>
+              <div class="testimonial-author">
+                <div class="avatar-circle">IM</div>
+                <div>
+                  <h3>Imran Mahmud</h3>
+                  <span class="role">Associate Member, International Affairs, DIU</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -352,6 +438,15 @@
       </div>
     </section>
 
+  </div>
+
+  <div class="img-modal" id="imgModal">
+    <div class="img-modal-backdrop" id="imgModalBackdrop"></div>
+    <div class="img-modal-content">
+      <button class="img-modal-close" id="imgModalClose" aria-label="Close image">&times;</button>
+      <img src="" alt="" id="imgModalPicture">
+      <p class="img-modal-title" id="imgModalTitle"></p>
+    </div>
   </div>
 
   <script src="script.js"></script>
