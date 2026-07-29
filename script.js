@@ -1,4 +1,35 @@
 document.addEventListener('DOMContentLoaded', function () {
+  // ---- Day / Night mode toggle ----
+  const THEME_KEY = 'preferredTheme'; // 'light' or 'dark'
+  const themeToggle = document.getElementById('themeToggle');
+  const themeIcon = document.getElementById('themeIcon');
+  const themeToggleSide = document.getElementById('themeToggleSide');
+  const themeIconSide = document.getElementById('themeIconSide');
+  const themeLabelSide = document.getElementById('themeLabelSide');
+
+  function applyTheme(theme) {
+    const isLight = theme === 'light';
+    document.body.classList.toggle('light-mode', isLight);
+
+    if (themeIcon) themeIcon.className = isLight ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
+    if (themeIconSide) themeIconSide.className = isLight ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
+    if (themeLabelSide) themeLabelSide.textContent = isLight ? 'Night mode' : 'Day mode';
+  }
+
+  function toggleTheme() {
+    const isLight = document.body.classList.contains('light-mode');
+    const next = isLight ? 'dark' : 'light';
+    applyTheme(next);
+    try { localStorage.setItem(THEME_KEY, next); } catch (e) { /* storage unavailable */ }
+  }
+
+  let savedTheme = null;
+  try { savedTheme = localStorage.getItem(THEME_KEY); } catch (e) { /* storage unavailable */ }
+  applyTheme(savedTheme === 'light' ? 'light' : 'dark');
+
+  if (themeToggle) themeToggle.addEventListener('click', toggleTheme);
+  if (themeToggleSide) themeToggleSide.addEventListener('click', toggleTheme);
+
   // ---- Preloader: cycle through greetings before the home page reveals ----
   const preloader = document.getElementById('preloader');
   const preloaderText = document.getElementById('preloader-text');
@@ -192,6 +223,42 @@ document.addEventListener('DOMContentLoaded', function () {
     scrollHint.style.cursor = 'pointer';
   }
 
+  // ---- Project "View Image" lightbox ----
+  const imgModal = document.getElementById('imgModal');
+  const imgModalBackdrop = document.getElementById('imgModalBackdrop');
+  const imgModalClose = document.getElementById('imgModalClose');
+  const imgModalPicture = document.getElementById('imgModalPicture');
+  const imgModalTitle = document.getElementById('imgModalTitle');
+  const imgViewButtons = document.querySelectorAll('.img-view-btn');
+
+  function openImgModal(src, title) {
+    if (!imgModal || !imgModalPicture) return;
+    imgModalPicture.src = src;
+    imgModalPicture.alt = title || 'Project screenshot';
+    if (imgModalTitle) imgModalTitle.textContent = title || '';
+    imgModal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeImgModal() {
+    if (!imgModal) return;
+    imgModal.classList.remove('open');
+    document.body.style.overflow = '';
+    if (imgModalPicture) imgModalPicture.src = '';
+  }
+
+  imgViewButtons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      openImgModal(btn.getAttribute('data-img'), btn.getAttribute('data-title'));
+    });
+  });
+
+  if (imgModalBackdrop) imgModalBackdrop.addEventListener('click', closeImgModal);
+  if (imgModalClose) imgModalClose.addEventListener('click', closeImgModal);
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && imgModal && imgModal.classList.contains('open')) closeImgModal();
+  });
+
   // ---- Contact Form Submission to Google Sheets ----
   const scriptURL = 'https://script.google.com/macros/s/AKfycbzOFdvDiIenazXLS8Ki1e4Eox1BO5jiZNtcQEtYA9UFcQtTdOG4HQJJJggUlO-5s8KR/exec';
   const form = document.querySelector('.contact-form');
@@ -221,3 +288,4 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 });
+
