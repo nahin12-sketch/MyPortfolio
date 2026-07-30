@@ -462,6 +462,39 @@ body {
   font-weight: 600;
 }
 
+.t-tag-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .6rem;
+  margin-top: .5rem;
+}
+
+.t-tag-row .t-tag {
+  margin-top: 0;
+}
+
+.t-photo-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  font-size: .75rem;
+  font-weight: 600;
+  color: #5DB9EE;
+  background: transparent;
+  border: 1px solid rgba(93, 185, 238, 0.5);
+  padding: .2rem .7rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background .2s ease, color .2s ease;
+}
+
+.t-photo-btn:hover {
+  background: #5DB9EE;
+  color: #1c1b1b;
+}
+
 /* Stat cards (Achievements) */
 .stat-grid {
   display: grid;
@@ -1541,6 +1574,16 @@ body.light-mode .timeline-item .t-tag {
   color: #fff;
 }
 
+body.light-mode .t-photo-btn {
+  color: #1E88C7;
+  border-color: rgba(30, 136, 199, 0.5);
+}
+
+body.light-mode .t-photo-btn:hover {
+  background: #1E88C7;
+  color: #fff;
+}
+
 body.light-mode .timeline {
   border-left-color: rgba(30, 136, 199, 0.3);
 }
@@ -1973,5 +2016,102 @@ body.light-mode .chat-fab {
   background: #1E88C7;
   color: #fff;
   box-shadow: 0 6px 18px rgba(30, 136, 199, 0.3);
+}
+
+/* ===== Custom Cursor ===== */
+body.has-custom-cursor,
+body.has-custom-cursor a,
+body.has-custom-cursor button,
+body.has-custom-cursor input,
+body.has-custom-cursor textarea,
+body.has-custom-cursor .section-link,
+body.has-custom-cursor .card,
+body.has-custom-cursor .side-link {
+  cursor: none;
+}
+
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  border-radius: 50%;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  will-change: transform;
+}
+
+.cursor-dot {
+  width: .5rem;
+  height: .5rem;
+  background: #5DB9EE;
+  transition: width .2s ease, height .2s ease, background .2s ease, opacity .2s ease;
+  opacity: 0;
+}
+
+.cursor-ring {
+  width: 2.2rem;
+  height: 2.2rem;
+  border: 1.5px solid rgba(93, 185, 238, 0.6);
+  transition: width .25s ease, height .25s ease, border-color .25s ease, background .25s ease, opacity .2s ease, transform .05s linear;
+  opacity: 0;
+}
+
+body.cursor-active .cursor-dot,
+body.cursor-active .cursor-ring {
+  opacity: 1;
+}
+
+/* Stretch effect while moving fast */
+body.cursor-moving .cursor-ring {
+  width: 2.6rem;
+  height: 2.6rem;
+  border-color: #5DB9EE;
+}
+
+body.cursor-moving .cursor-dot {
+  width: .3rem;
+  height: .3rem;
+}
+
+/* Grow + fill on hoverable elements */
+body.cursor-hover .cursor-ring {
+  width: 3.4rem;
+  height: 3.4rem;
+  background: rgba(93, 185, 238, 0.15);
+  border-color: #5DB9EE;
+}
+
+body.cursor-hover .cursor-dot {
+  width: 0;
+  height: 0;
+}
+
+body.light-mode .cursor-dot {
+  background: #1E88C7;
+}
+
+body.light-mode .cursor-ring {
+  border-color: rgba(30, 136, 199, 0.6);
+}
+
+body.light-mode.cursor-hover .cursor-ring {
+  background: rgba(30, 136, 199, 0.12);
+  border-color: #1E88C7;
+}
+
+/* Disable custom cursor on touch devices */
+@media (hover: none), (pointer: coarse) {
+  .cursor-dot,
+  .cursor-ring {
+    display: none;
+  }
+
+  body.has-custom-cursor,
+  body.has-custom-cursor a,
+  body.has-custom-cursor button {
+    cursor: auto;
+  }
 }
 
