@@ -449,7 +449,32 @@
     </div>
   </div>
 
+  <!-- ===== Chatbot Widget ===== -->
+  <button class="chat-fab" id="chatFab" aria-label="Chat with Nahin's assistant">
+    <i class="fa-solid fa-comment-dots" id="chatFabIcon"></i>
+  </button>
+
+  <div class="chat-window" id="chatWindow">
+    <div class="chat-header">
+      <div class="chat-header-info">
+        <div class="chat-avatar"><i class="fa-solid fa-robot"></i></div>
+        <div>
+          <h4>Nahin's Assistant</h4>
+          <span class="chat-status">Ask me about Nahin</span>
+        </div>
+      </div>
+      <button class="chat-close" id="chatClose" aria-label="Close chat">&times;</button>
+    </div>
+    <div class="chat-body" id="chatBody"></div>
+    <div class="chat-quick-replies" id="chatQuickReplies"></div>
+    <form class="chat-input-row" id="chatForm">
+      <input type="text" id="chatInput" placeholder="Type a question..." autocomplete="off" />
+      <button type="submit" aria-label="Send"><i class="fa-solid fa-paper-plane"></i></button>
+    </form>
+  </div>
+
   <script src="script.js"></script>
 </body>
 
 </html>
+
