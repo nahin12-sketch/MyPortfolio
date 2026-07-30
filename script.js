@@ -259,6 +259,181 @@ document.addEventListener('DOMContentLoaded', function () {
     if (e.key === 'Escape' && imgModal && imgModal.classList.contains('open')) closeImgModal();
   });
 
+  // ---- Chatbot Assistant ----
+  const chatFab = document.getElementById('chatFab');
+  const chatFabIcon = document.getElementById('chatFabIcon');
+  const chatWindow = document.getElementById('chatWindow');
+  const chatClose = document.getElementById('chatClose');
+  const chatBody = document.getElementById('chatBody');
+  const chatForm = document.getElementById('chatForm');
+  const chatInput = document.getElementById('chatInput');
+  const chatQuickReplies = document.getElementById('chatQuickReplies');
+
+  if (chatFab && chatWindow) {
+    const knowledgeBase = [
+      {
+        keywords: ['name', 'who are you', 'who is nahin'],
+        answer: "I'm Mir Nahin Rahman, a Software Engineering student at DIU (6th semester)."
+      },
+      {
+        keywords: ['education', 'study', 'university', 'diu', 'degree', 'bsc'],
+        answer: "Nahin is pursuing a BSc in Software Engineering at Daffodil International University (expected 2028), with a 5.00 GPA in both SSC and HSC (Science)."
+      },
+      {
+        keywords: ['cgpa', 'gpa', 'result', 'grade'],
+        answer: "Nahin currently holds a 3.95 CGPA in Software Engineering, with 5.00/5.00 in both SSC and HSC."
+      },
+      {
+        keywords: ['skill', 'tech stack', 'programming language', 'language', 'tools'],
+        answer: "Core skills include C/C++, Java, Python (basic), UML & Requirements Engineering, plus Microsoft Office and Canva."
+      },
+      {
+        keywords: ['project', 'work', 'built', 'portfolio'],
+        answer: "Three featured projects: LifeFloat (flood human-detection robot concept), HydroQuest (the Water Jug algorithm challenge), and Sheltrify (an animal shelter management system). Check the Project section above for GitHub links and screenshots!"
+      },
+      {
+        keywords: ['lifefloat'],
+        answer: "LifeFloat is an autonomous flood-rescue robot concept designed to detect stranded people in flood-affected areas for faster, safer rescue response."
+      },
+      {
+        keywords: ['hydroquest', 'water jug'],
+        answer: "HydroQuest tackles the classic water-jug puzzle using algorithmic problem-solving — exploring state spaces and search strategies to reach a target measurement."
+      },
+      {
+        keywords: ['sheltrify', 'shelter', 'animal'],
+        answer: "Sheltrify is a management system for organizing animal shelter operations — tracking animals, adopters, and shelter records in one app."
+      },
+      {
+        keywords: ['exchange', 'malaysia', 'usm', 'abroad'],
+        answer: "Nahin was selected for the Student Exchange Program at Universiti Sains Malaysia (USM) after clearing a viva round, and received the official offer letter in July 2026 — see the News section for details."
+      },
+      {
+        keywords: ['achievement', 'award', 'recognition'],
+        answer: "Highlights include a 3.95 CGPA, perfect 5.00 GPA in SSC & HSC, and 3 Campus Ambassador roles (CDC DIU, Skill Jobs, AXIOM Season 1)."
+      },
+      {
+        keywords: ['news', 'update', 'latest'],
+        answer: "The latest news includes the USM exchange offer letter, organizing the \"Unlock the Algorithm\" programming contest, and campus volunteering with CDC DIU — full timeline in the News section."
+      },
+      {
+        keywords: ['feedback', 'testimonial', 'review', 'faculty say'],
+        answer: "Faculty members Sakib Mojumdar, Ashikur Rahman, and Imran Mahmud have shared kind words about Nahin's discipline and leadership — see the Feedback section."
+      },
+      {
+        keywords: ['hobby', 'hobbies', 'interest', 'free time'],
+        answer: "Outside academics, Nahin enjoys competitive programming, reading non-fiction & tech books, volunteering & mentoring, cricket, and table tennis."
+      },
+      {
+        keywords: ['contact', 'email', 'phone', 'reach', 'hire', 'location', 'address'],
+        answer: "You can reach Nahin at Nahinrahman926@gmail.com or +880 1786-793452 (based in Savar, Bangladesh) — or just use the contact form below!"
+      },
+      {
+        keywords: ['cv', 'resume', 'download'],
+        answer: "You can download Nahin's CV using the \"Download CV\" button on the Home section."
+      },
+      {
+        keywords: ['hi', 'hello', 'hey', 'assalamu'],
+        answer: "Hey there! 👋 Ask me anything about Nahin — his education, skills, projects, or how to get in touch."
+      },
+      {
+        keywords: ['thank', 'thanks'],
+        answer: "You're welcome! Let me know if there's anything else you'd like to know about Nahin."
+      }
+    ];
+
+    const defaultAnswer = "I'm not totally sure about that one — but feel free to ask about Nahin's education, skills, projects, achievements, or how to contact him!";
+
+    const quickReplyItems = ['Education', 'Skills', 'Projects', 'Contact'];
+
+    function addMessage(text, sender) {
+      const msg = document.createElement('div');
+      msg.className = 'chat-msg ' + sender;
+      msg.textContent = text;
+      chatBody.appendChild(msg);
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }
+
+    function showTyping() {
+      const typing = document.createElement('div');
+      typing.className = 'chat-typing';
+      typing.id = 'chatTypingIndicator';
+      typing.innerHTML = '<span></span><span></span><span></span>';
+      chatBody.appendChild(typing);
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }
+
+    function hideTyping() {
+      const typing = document.getElementById('chatTypingIndicator');
+      if (typing) typing.remove();
+    }
+
+    function getAnswer(question) {
+      const q = question.toLowerCase();
+      for (let i = 0; i < knowledgeBase.length; i++) {
+        if (knowledgeBase[i].keywords.some(function (kw) { return q.indexOf(kw) !== -1; })) {
+          return knowledgeBase[i].answer;
+        }
+      }
+      return defaultAnswer;
+    }
+
+    function respondTo(question) {
+      addMessage(question, 'user');
+      showTyping();
+      window.setTimeout(function () {
+        hideTyping();
+        addMessage(getAnswer(question), 'bot');
+      }, 500 + Math.random() * 400);
+    }
+
+    function renderQuickReplies() {
+      chatQuickReplies.innerHTML = '';
+      quickReplyItems.forEach(function (label) {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.textContent = label;
+        btn.addEventListener('click', function () { respondTo(label); });
+        chatQuickReplies.appendChild(btn);
+      });
+    }
+
+    let chatInitialized = false;
+
+    function openChat() {
+      chatWindow.classList.add('open');
+      chatFab.classList.add('open');
+      if (chatFabIcon) chatFabIcon.className = 'fa-solid fa-xmark';
+      if (!chatInitialized) {
+        addMessage("Hi! I'm Nahin's assistant 🤖 Ask me anything about his education, skills, projects, or achievements.", 'bot');
+        renderQuickReplies();
+        chatInitialized = true;
+      }
+      if (chatInput) chatInput.focus();
+    }
+
+    function closeChat() {
+      chatWindow.classList.remove('open');
+      chatFab.classList.remove('open');
+      if (chatFabIcon) chatFabIcon.className = 'fa-solid fa-comment-dots';
+    }
+
+    chatFab.addEventListener('click', function () {
+      chatWindow.classList.contains('open') ? closeChat() : openChat();
+    });
+
+    if (chatClose) chatClose.addEventListener('click', closeChat);
+
+    if (chatForm) {
+      chatForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const value = chatInput.value.trim();
+        if (!value) return;
+        respondTo(value);
+        chatInput.value = '';
+      });
+    }
+  }
+
   // ---- Contact Form Submission to Google Sheets ----
   const scriptURL = 'https://script.google.com/macros/s/AKfycbzOFdvDiIenazXLS8Ki1e4Eox1BO5jiZNtcQEtYA9UFcQtTdOG4HQJJJggUlO-5s8KR/exec';
   const form = document.querySelector('.contact-form');
