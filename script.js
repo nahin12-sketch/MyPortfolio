@@ -462,4 +462,74 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     });
   }
+
+  // ---- Custom cursor ----
+  const isTouchDevice = window.matchMedia('(hover: none), (pointer: coarse)').matches;
+
+  if (!isTouchDevice) {
+    document.body.classList.add('has-custom-cursor');
+
+    const cursorDot = document.getElementById('cursorDot');
+    const cursorRing = document.getElementById('cursorRing');
+
+    if (cursorDot && cursorRing) {
+      let mouseX = 0, mouseY = 0;       // real cursor position
+      let ringX = 0, ringY = 0;         // lagging ring position
+      let lastX = 0, lastY = 0;         // for speed calculation
+      let moveTimeout;
+
+      document.addEventListener('mousemove', function (e) {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+
+        cursorDot.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%, -50%)`;
+
+        document.body.classList.add('cursor-active');
+
+        // Detect fast movement to trigger a subtle "stretch" reaction
+        const speed = Math.hypot(mouseX - lastX, mouseY - lastY);
+        lastX = mouseX;
+        lastY = mouseY;
+
+        if (speed > 12) {
+          document.body.classList.add('cursor-moving');
+          clearTimeout(moveTimeout);
+          moveTimeout = setTimeout(function () {
+            document.body.classList.remove('cursor-moving');
+          }, 120);
+        }
+      });
+
+      document.addEventListener('mouseleave', function () {
+        document.body.classList.remove('cursor-active');
+      });
+
+      document.addEventListener('mouseenter', function () {
+        document.body.classList.add('cursor-active');
+      });
+
+      // Smoothly trail the ring behind the dot
+      function animateRing() {
+        ringX += (mouseX - ringX) * 0.15;
+        ringY += (mouseY - ringY) * 0.15;
+        cursorRing.style.transform = `translate(${ringX}px, ${ringY}px) translate(-50%, -50%)`;
+        requestAnimationFrame(animateRing);
+      }
+      animateRing();
+
+      // Grow the ring over clickable / interactive elements
+      const hoverTargets = document.querySelectorAll(
+        'a, button, input, textarea, .card, .side-link, .section-link, .tag, .img-view-btn'
+      );
+      hoverTargets.forEach(function (el) {
+        el.addEventListener('mouseenter', function () {
+          document.body.classList.add('cursor-hover');
+        });
+        el.addEventListener('mouseleave', function () {
+          document.body.classList.remove('cursor-hover');
+        });
+      });
+    }
+  }
 });
+
